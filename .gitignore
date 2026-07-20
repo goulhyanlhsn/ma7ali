@@ -1,0 +1,5 @@
+uploads/products/prod_1784*
+uploads/products/*.jpeg
+uploads/products/.gitkeep
+*.log
+.DS_Store
