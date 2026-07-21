@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ma7ali - متجر إلكتروني</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+            <span class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></span>ma7ali
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>الرئيسية</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-grid me-1"></i>الأقسام</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="filterCategory('electronique')">إلكترونيات <span class="badge bg-primary ms-1" style="font-size:0.65rem">3</span></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterCategory('vetements')">ملابس <span class="badge bg-primary ms-1" style="font-size:0.65rem">3</span></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterCategory('maison')">المنزل <span class="badge bg-primary ms-1" style="font-size:0.65rem">2</span></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterCategory('sport')">رياضة <span class="badge bg-primary ms-1" style="font-size:0.65rem">2</span></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterCategory('beaute')">جمال <span class="badge bg-primary ms-1" style="font-size:0.65rem">1</span></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterCategory('livres')">كتب <span class="badge bg-primary ms-1" style="font-size:0.65rem">1</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex me-3 search-form" onsubmit="searchProducts(event)">
+                <div class="input-group">
+                    <input type="search" id="searchInput" class="form-control" placeholder="بحث عن منتج...">
+                    <button class="btn" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link cart-icon-link" href="cart.html" aria-label="سلة المشتريات" role="button">
+                        <svg class="cart-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75-9a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        <span class="cart-badge" id="cartBadge" aria-hidden="true">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-4">
+
+<!-- HERO -->
+<section class="hero-section mb-5" style="margin-top: -5%;">
+    <div class="hero-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+    </div>
+    <div class="container position-relative">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="hero-badge">
+                    <i class="bi bi-fire ms-1"></i> عروض حصرية
+                </div>
+                <h1 class="hero-title">مرحبا بكم في<br><span class="hero-brand">ma7ali</span></h1>
+                <p class="hero-subtitle">اكتشف تشكيلتنا المميزة من المنتجات عالية الجودة. اطلب بسهولة وسرعة واستلم طلبك مباشرة عبر الواتساب.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/212600000000" class="btn btn-whatsapp btn-lg hero-btn-whatsapp" target="_blank">
+                        <i class="bi bi-whatsapp ms-2"></i>تواصل معنا
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" data-count="12">0</span>
+                        <span class="hero-stat-label">منتج متوفر</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" data-count="6">0</span>
+                        <span class="hero-stat-label">قسم متنوع</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" data-count="100">0</span>
+                        <span class="hero-stat-label">% رضا العملاء</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="hero-visual">
+                    <div class="hero-glow"></div>
+                    <div class="hero-icon-main">
+                        <i class="bi bi-bag-check"></i>
+                    </div>
+                    <div class="hero-float-card hero-float-1">
+                        <i class="bi bi-truck"></i>
+                        <span>توصيل سريع</span>
+                    </div>
+                    <div class="hero-float-card hero-float-2">
+                        <i class="bi bi-shield-check"></i>
+                        <span>دفع آمن</span>
+                    </div>
+                    <div class="hero-float-card hero-float-3">
+                        <i class="bi bi-headset"></i>
+                        <span>دعم 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="mb-5">
+    <div class="container">
+        <h2 class="fw-bold mb-4"><i class="bi bi-star-fill text-warning ms-2"></i>منتجات مميزة</h2>
+        <div class="row g-4" id="featuredProducts"></div>
+    </div>
+</section>
+
+<!-- ALL PRODUCTS -->
+<section id="products" class="mb-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold mb-0"><i class="bi bi-grid ms-2"></i>جميع المنتجات</h2>
+            <div class="btn-group btn-group-sm d-none d-md-flex" id="categoryFilters">
+                <button class="btn btn-primary" onclick="filterCategory('all')">الكل</button>
+                <button class="btn btn-outline-primary" onclick="filterCategory('electronique')">إلكترونيات</button>
+                <button class="btn btn-outline-primary" onclick="filterCategory('vetements')">ملابس</button>
+                <button class="btn btn-outline-primary" onclick="filterCategory('maison')">المنزل</button>
+                <button class="btn btn-outline-primary" onclick="filterCategory('sport')">رياضة</button>
+                <button class="btn btn-outline-primary" onclick="filterCategory('beaute')">جمال</button>
+                <button class="btn btn-outline-primary" onclick="filterCategory('livres')">كتب</button>
+            </div>
+        </div>
+        <div class="row g-4" id="allProducts"></div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer mt-5">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-lg-4 mb-4">
+                <h5 class="fw-bold mb-3">
+                    <span class="brand-icon" style="width:32px;height:32px;font-size:0.9rem;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:var(--gradient-main);color:#fff;margin-left:0.5rem;vertical-align:middle"><i class="bi bi-lightning-charge-fill"></i></span>ma7ali
+                </h5>
+                <p style="color:rgba(255,255,255,0.6);line-height:1.7">وجهتك للمنتجات عالية الجودة. اطلب بسهولة واستلم طلبك مباشرة عبر الواتساب.</p>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-4">
+                <h6 class="fw-bold mb-3">التنقل</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="index.html" style="color:rgba(255,255,255,0.6);text-decoration:none">الرئيسية</a></li>
+                    <li class="mb-2"><a href="cart.html" style="color:rgba(255,255,255,0.6);text-decoration:none">سلة المشتريات</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 mb-4">
+                <h6 class="fw-bold mb-3">الأقسام</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" onclick="filterCategory('electronique')" style="color:rgba(255,255,255,0.6);text-decoration:none">إلكترونيات</a></li>
+                    <li class="mb-2"><a href="#" onclick="filterCategory('vetements')" style="color:rgba(255,255,255,0.6);text-decoration:none">ملابس</a></li>
+                    <li class="mb-2"><a href="#" onclick="filterCategory('maison')" style="color:rgba(255,255,255,0.6);text-decoration:none">المنزل</a></li>
+                    <li class="mb-2"><a href="#" onclick="filterCategory('sport')" style="color:rgba(255,255,255,0.6);text-decoration:none">رياضة</a></li>
+                    <li class="mb-2"><a href="#" onclick="filterCategory('beaute')" style="color:rgba(255,255,255,0.6);text-decoration:none">جمال</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 mb-4">
+                <h6 class="fw-bold mb-3">التواصل</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2" style="color:rgba(255,255,255,0.6)"><i class="bi bi-telephone ms-2"></i>+212 6 00 00 00 00</li>
+                    <li class="mb-2" style="color:rgba(255,255,255,0.6)"><i class="bi bi-envelope ms-2"></i>contact@ma7ali.ma</li>
+                    <li class="mb-2" style="color:rgba(255,255,255,0.6)"><i class="bi bi-geo-alt ms-2"></i>الدار البيضاء، المغرب</li>
+                </ul>
+            </div>
+        </div>
+        <hr style="border-color:rgba(255,255,255,0.1)">
+        <div class="row py-3">
+            <div class="col-md-6 text-center text-md-start">
+                <p style="color:rgba(255,255,255,0.4)" class="mb-0 small">&copy; 2026 ma7ali. جميع الحقوق محفوظة.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="https://wa.me/212600000000" class="btn btn-sm btn-success" target="_blank">
+                    <i class="bi bi-whatsapp ms-1"></i>واتساب
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const PRODUCTS = [
+    {id:1, name:"هاتف ذكي برو X", desc:"أحدث هاتف بشاشة OLED 6.5 بوصة، معالج سريع، 128 جيجا تخزين. كاميرا 48 ميجا بيكسل.", price:4999, image:"uploads/products/prod_1.png", category:"electronique", catName:"إلكترونيات", stock:25, featured:true},
+    {id:2, name:"سماعات بلوتوث بريميوم", desc:"سماعات لاسلكية مع خفض الضوضاء النشط، عمر بطارية 30 ساعة، صوت عالي الجودة.", price:899, image:"uploads/products/prod_2.png", category:"electronique", catName:"إلكترونيات", stock:50, featured:true},
+    {id:3, name:"لابتوب ألترا سليم", desc:"جهاز كمبيوتر محمول 14 بوصة، 16 جيجا رام، 512 جيجا SSD، معالج الجيل الأخير.", price:7999, image:"uploads/products/prod_3.png", category:"electronique", catName:"إلكترونيات", stock:15, featured:false},
+    {id:4, name:"تيشيرت قطن بريميوم", desc:"تيشيرت من القطن العضوي 100%، قصّة عصرية، متوفر بعدة أحجام وألوان.", price:149, image:"uploads/products/prod_4.png", category:"vetements", catName:"ملابس", stock:200, featured:true},
+    {id:5, name:"جينز سليم فيت", desc:"جينز سليم فيت من جينز عالي الجودة، مريح وstylish. مثالي لإطلالة كاجوال.", price:349, image:"uploads/products/prod_5.png", category:"vetements", catName:"ملابس", stock:100, featured:true},
+    {id:6, name:"جاكيت جلد", desc:"جاكيت جلد طبيعي، تصميم كلاسيكي وخالد. بطانة داخلية لمزيد من الراحة.", price:1299, image:"uploads/products/prod_6.png", category:"vetements", catName:"ملابس", stock:30, featured:false},
+    {id:7, name:"مصباح مكتب LED", desc:"مصباح مكتب عصري مع 3 مستويات إضاءة، شاحن USB مدمج، تصميم بسيط.", price:249, image:"uploads/products/prod_7.png", category:"maison", catName:"المنزل", stock:75, featured:false},
+    {id:8, name:"لحاف مقاوم للحساسية", desc:"لحاف بريميوم مقاوم للحساسية، حجم 200×200 سم، ناعم وخفيف.", price:399, image:"uploads/products/prod_8.png", category:"maison", catName:"المنزل", stock:40, featured:false},
+    {id:9, name:"كرة قدم", desc:"كرة قدم رسمية، مقاس 5، مصنوعة من مادة PU عالية الجودة.", price:199, image:"uploads/products/prod_9.png", category:"sport", catName:"رياضة", stock:80, featured:true},
+    {id:10, name:"سجادة يوغا بريميوم", desc:"سجادة يوغا مقاومة للانزلاق، سماكة 6 مم، مواد صديقة للبيئة.", price:299, image:"uploads/products/prod_10.png", category:"sport", catName:"رياضة", stock:60, featured:false},
+    {id:11, name:"عطر شرقي", desc:"عطر رجل/امرأة بلمحات شرقية، ثبات طويل 12+ ساعة. زجاجة أنيقة 100 مل.", price:599, image:"uploads/products/prod_11.png", category:"beaute", catName:"جمال", stock:45, featured:true},
+    {id:12, name:"رواية الأكثر مبيعاً", desc:"رواية الأكثر مبيعاً دولياً، طباعة جيب. قصة مشوقة ستمسكك حتى النهاية.", price:79, image:"uploads/products/prod_12.png", category:"livres", catName:"كتب", stock:150, featured:false}
+];
+
+const CART_KEY = 'ma7ali_cart';
+let cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+
+function saveCart() {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateBadge();
+}
+
+function updateBadge() {
+    const total = cart.reduce((s, i) => s + i.qty, 0);
+    document.getElementById('cartBadge').textContent = total;
+}
+
+function addToCart(id) {
+    const product = PRODUCTS.find(p => p.id === id);
+    if (!product) return;
+    const existing = cart.find(i => i.id === id);
+    if (existing) { existing.qty++; }
+    else { cart.push({id: product.id, name: product.name, price: product.price, image: product.image, qty: 1}); }
+    saveCart();
+    const badge = document.getElementById('cartBadge');
+    badge.classList.remove('pulse');
+    void badge.offsetWidth;
+    badge.classList.add('pulse');
+    setTimeout(() => badge.classList.remove('pulse'), 500);
+}
+
+function renderProduct(p, container) {
+    const div = document.createElement('div');
+    div.className = 'col-sm-6 col-lg-4';
+    div.dataset.category = p.category;
+    div.innerHTML = `
+        <div class="card product-card h-100">
+            <div class="product-img-wrapper">
+                ${p.featured ? '<span class="badge-overlay badge-featured"><i class="bi bi-star-fill ms-1"></i>مميز</span>' : ''}
+                <div class="product-img-placeholder">
+                    <img src="${p.image}" alt="${p.name}" onerror="this.parentElement.innerHTML='<i class=\\'bi bi-box-seam\\'></i>'">
+                </div>
+            </div>
+            <div class="card-body">
+                <span class="product-category">${p.catName}</span>
+                <h5 class="product-title">${p.name}</h5>
+                <p class="product-desc">${p.desc.substring(0, 80)}</p>
+                <div class="product-meta">
+                    <span class="product-price">${p.price.toLocaleString()} DH</span>
+                    <span class="product-stock"><span class="dot in"></span>${p.stock} متوفر</span>
+                </div>
+                <div class="product-actions">
+                    <a href="product.html?id=${p.id}" class="btn btn-product-detail"><i class="bi bi-eye ms-1"></i>التفاصيل</a>
+                    <button class="btn btn-product-cart w-100" onclick="addToCart(${p.id})"><i class="bi bi-cart-plus ms-1"></i>إضافة</button>
+                </div>
+            </div>
+        </div>`;
+    container.appendChild(div);
+}
+
+function renderFeatured() {
+    const container = document.getElementById('featuredProducts');
+    PRODUCTS.filter(p => p.featured).forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'col-md-6 col-lg-3';
+        div.innerHTML = `
+            <div class="card product-card h-100">
+                <div class="product-img-wrapper">
+                    <span class="badge-overlay badge-featured"><i class="bi bi-star-fill ms-1"></i>مميز</span>
+                    <div class="product-img-placeholder">
+                        <img src="${p.image}" alt="${p.name}" onerror="this.parentElement.innerHTML='<i class=\\'bi bi-box-seam\\'></i>'">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="product-category">${p.catName}</span>
+                    <h6 class="product-title">${p.name}</h6>
+                    <div class="product-meta">
+                        <span class="product-price">${p.price.toLocaleString()} DH</span>
+                        <span class="product-stock"><span class="dot in"></span>متوفر</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="product.html?id=${p.id}" class="btn btn-product-detail"><i class="bi bi-eye ms-1"></i>التفاصيل</a>
+                        <button class="btn btn-product-cart w-100" onclick="addToCart(${p.id})"><i class="bi bi-cart-plus ms-1"></i>إضافة</button>
+                    </div>
+                </div>
+            </div>`;
+        container.appendChild(div);
+    });
+}
+
+function renderAll(category = 'all', search = '') {
+    const container = document.getElementById('allProducts');
+    container.innerHTML = '';
+    let filtered = PRODUCTS;
+    if (category !== 'all') filtered = filtered.filter(p => p.category === category);
+    if (search) filtered = filtered.filter(p => p.name.includes(search) || p.desc.includes(search));
+    if (filtered.length === 0) {
+        container.innerHTML = '<div class="text-center py-5"><p class="text-muted fs-5">لم يتم العثور على منتجات.</p></div>';
+        return;
+    }
+    filtered.forEach(p => renderProduct(p, container));
+}
+
+function filterCategory(cat) {
+    document.querySelectorAll('#categoryFilters .btn').forEach(b => {
+        b.className = 'btn btn-outline-primary';
+    });
+    if (cat === 'all') {
+        document.querySelector('#categoryFilters .btn').className = 'btn btn-primary';
+    }
+    renderAll(cat);
+}
+
+function searchProducts(e) {
+    e.preventDefault();
+    const q = document.getElementById('searchInput').value.trim();
+    renderAll('all', q);
+}
+
+// Counter animation
+document.addEventListener('DOMContentLoaded', function() {
+    renderFeatured();
+    renderAll();
+    updateBadge();
+
+    document.querySelectorAll('[data-count]').forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) { counter.textContent = target; clearInterval(timer); }
+            else { counter.textContent = Math.floor(current); }
+        }, 16);
+    });
+
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        navbar.style.boxShadow = window.scrollY > 50 ? '0 8px 40px rgba(0,0,0,0.4)' : '0 4px 30px rgba(0,0,0,0.3)';
+    });
+});
+</script>
+</body>
+</html>
