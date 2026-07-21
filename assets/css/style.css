@@ -1452,6 +1452,7 @@ hr {
   .hero-section {
     padding: 2rem 1rem;
     border-radius: 0 0 20px 20px;
+    margin-top: 0 !important;
   }
   .hero-title {
     font-size: 1.5rem;
@@ -1482,5 +1483,11 @@ hr {
     align-items: center;
     padding-top: 0.8rem;
     border-top: 1.5px solid var(--border);
+  }
+  .search-form .form-control {
+    min-width: 150px;
+  }
+  body {
+    overflow-x: hidden;
   }
 }
